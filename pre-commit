@@ -1,0 +1,11 @@
+#!/bin/bash
+# Check if each directory has a README.md
+
+for dir in $(find . -type d); do
+    if [ "$dir" != "." ] && [ -d "$dir" ]; then
+        if [ ! -f "$dir/README.md" ]; then
+            echo "Error: Directory $dir is missing README.md"
+            exit 1
+        fi
+    fi
+done
